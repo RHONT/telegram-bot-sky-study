@@ -105,25 +105,6 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
         return true;
     }
 
-
-    private void sendMessageToUserChat(List<NotificationTaskGetActualNowMessage> taskList) {
-        if (!taskList.isEmpty()) {
-            for (var element : taskList) {
-                SendMessage message = new SendMessage(element.getId_chat(), element.getMessage());
-                telegramBot.execute(message);
-                logger.debug("message for user chat {} send", element.getId_chat());
-            }
-        }
-    }
-
-    @Scheduled(cron = "0 0/1 * * * *")
-    private void SearchMassageByDate() {
-        LocalDateTime now = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
-        List<NotificationTaskGetActualNowMessage> taskList;
-        taskList = notificationTaskRepository.getMessageForNowDate(now);
-        sendMessageToUserChat(taskList);
-    }
-
 }
 
 
