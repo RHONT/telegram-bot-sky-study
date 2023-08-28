@@ -8,3 +8,8 @@ CREATE TABLE notification_task
     date    timestamp,
     message  varchar(50)
 );
+
+-- liquibase formatted sql
+
+-- changeset Rhont:2
+CREATE INDEX date_index ON notification_task (date);

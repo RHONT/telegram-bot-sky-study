@@ -3,6 +3,8 @@ package pro.sky.telegrambot.listener;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.model.request.KeyboardButton;
+import com.pengrad.telegrambot.model.request.ReplyKeyboardMarkup;
 import com.pengrad.telegrambot.request.SendMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +17,7 @@ import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -63,7 +66,6 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
         });
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
     }
-
 
     private boolean checkForBuissy(Long idUser, String inputMessage) {
         String dateTime;
