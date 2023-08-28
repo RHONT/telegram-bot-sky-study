@@ -7,9 +7,7 @@ import com.pengrad.telegrambot.request.SendMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import pro.sky.telegrambot.dto.NotificationTaskGetActualNowMessage;
 import pro.sky.telegrambot.model.NotificationTask;
 import pro.sky.telegrambot.repository.NotificationTaskRepository;
 
@@ -17,7 +15,6 @@ import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -98,7 +95,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
                 message)
         );
 
-        telegramBot.execute(new SendMessage(idUser,"Заметка записана!"));
+        telegramBot.execute(new SendMessage(idUser, "Заметка записана!"));
 
         logger.debug("User notification successfully save. User chat: {}", idUser);
 

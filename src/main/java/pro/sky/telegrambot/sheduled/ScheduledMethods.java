@@ -8,24 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import pro.sky.telegrambot.dto.NotificationTaskGetActualNowMessage;
-import pro.sky.telegrambot.listener.TelegramBotUpdatesListener;
 import pro.sky.telegrambot.repository.NotificationTaskRepository;
-
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Component
 public class ScheduledMethods {
-
     private final Logger logger = LoggerFactory.getLogger(ScheduledMethods.class);
-
     @Autowired
     private TelegramBot telegramBot;
-
     @Autowired
     private NotificationTaskRepository notificationTaskRepository;
-
 
     @Scheduled(cron = "0 0/1 * * * *")
     private void SearchMassageByDate() {
