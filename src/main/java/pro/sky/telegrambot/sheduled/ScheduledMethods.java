@@ -18,7 +18,7 @@ import java.util.List;
 @Component
 public class ScheduledMethods {
 
-    private final Logger logger = LoggerFactory.getLogger(TelegramBotUpdatesListener.class);
+    private final Logger logger = LoggerFactory.getLogger(ScheduledMethods.class);
 
     @Autowired
     private TelegramBot telegramBot;
