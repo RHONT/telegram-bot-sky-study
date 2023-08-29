@@ -1,2 +1,27 @@
-# telegram-bot-sky-study
-First work with telegramm bot
+# Мой первый телеграм бот
+
+### Стэк:
+- java
+- spring
+- telegram bot api
+- postgresql
+- liquibase
+
+### Задача бота: напоминалка
+
+Бот принимает от пользователя строку формата  
+01.01.2023 09:00 Улыбнутся соседу 
+
+- Далее запись проходит валидацию и парсинг в LocalDateTime
+- Записывается в базу данных (id_notification | id_chat_user | date | message)
+- Шедулер каждую минуту делает опрос базы на предмет совпадения по времени. Если такое есть, то пользователю
+отправляется его же сообщение
+
+###Способ запуска:
+- наличие postgres server
+- создать базу данных поправив application.properties
+- таблицы liquibase создаст сам
+- Обновить telegram.bot.token
+- исполняемый класс TelegramBotApplication.java
+
+
